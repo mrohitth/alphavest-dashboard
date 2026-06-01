@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AlphaVest Dashboard</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='14' font-size='14'>📊</text></svg>"/>
+  <!-- Bootstrap 5 dark -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+  <style>
+    :root {
+      --av-bg:       #0e1117;
+      --av-card:     #1a1d27;
+      --av-border:   #2a2d3a;
+      --av-muted:    #8a8fa8;
+      --av-primary:  #4a9eff;
+      --av-success:  #4caf50;
+      --av-warning:  #ff9800;
+      --av-danger:   #f44336;
+      --av-text:     #e0e4f0;
+    }
+    body            { background: var(--av-bg); color: var(--av-text); font-family: 'Segoe UI', system-ui, sans-serif; }
+    .navbar         { background: #111420 !important; border-bottom: 1px solid var(--av-border); }
+    .nav-tabs       { border-color: var(--av-border); }
+    .nav-tabs .nav-link          { color: var(--av-muted); border: none; padding: .5rem 1.25rem; }
+    .nav-tabs .nav-link.active   { color: var(--av-primary); border-bottom: 2px solid var(--av-primary); background: transparent; }
+    .nav-tabs .nav-link:hover    { color: var(--av-text); }
+    .card           { background: var(--av-card); border: 1px solid var(--av-border); }
+    .table          { --bs-table-bg: transparent; --bs-table-color: var(--av-text); --bs-table-striped-bg: rgba(255,255,255,.03); }
+    .table th       { color: var(--av-muted); font-size: .78rem; text-transform: uppercase; letter-spacing: .05em; border-color: var(--av-border); }
+    .table td       { border-color: var(--av-border); font-size: .88rem; }
+    .badge-paper    { background: #1565c0; padding: .3rem .8rem; border-radius: 20px; font-size: .78rem; font-weight: 700; }
+    .badge-live     { background: #b71c1c; padding: .3rem .8rem; border-radius: 20px; font-size: .78rem; font-weight: 700; }
+    .badge-sample   { background: #5d4037; padding: .2rem .6rem; border-radius: 20px; font-size: .72rem; font-weight: 600; margin-left: .5rem; }
+    .metric-card    { background: var(--av-card); border: 1px solid var(--av-border); border-radius: 8px; padding: 1rem 1.25rem; }
+    .metric-label   { font-size: .75rem; color: var(--av-muted); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .2rem; }
+    .metric-value   { font-size: 1.6rem; font-weight: 700; line-height: 1.1; }
+    .metric-delta   { font-size: .78rem; margin-top: .2rem; }
+    .metric-delta.pos { color: var(--av-success); }
+    .metric-delta.neg { color: var(--av-danger); }
+    .metric-delta.neu { color: var(--av-muted); }
+    .alert-card     { border-radius: 8px; margin-bottom: 1rem; }
+    .alert-card .card-header { cursor: pointer; padding: .75rem 1rem; display: flex; align-items: center; gap: .75rem; }
+    .badge-add      { background: #1b5e20; color: #a5d6a7; }
+    .badge-trim     { background: #e65100; color: #ffcc80; }
+    .badge-exit     { background: #7f0000; color: #ef9a9a; }
+    .badge-watch    { background: #0d47a1; color: #90caf9; }
+    .badge-spec     { background: #4a1a00; color: #ffcc80; font-size: .7rem; }
+    .pillar-bar-wrap { margin-bottom: .4rem; }
+    .pillar-label   { font-size: .78rem; color: var(--av-muted); width: 130px; flex-shrink: 0; }
+    .pillar-track   { flex: 1; height: 14px; background: var(--av-border); border-radius: 3px; overflow: hidden; }
+    .pillar-fill    { height: 100%; border-radius: 3px; transition: width .4s; }
+    .pillar-val     { font-size: .78rem; width: 30px; text-align: right; flex-shrink: 0; }
+    .driver-row     { display: flex; justify-content: space-between; font-size: .8rem; margin-bottom: .2rem; }
+    .not-advice-bar { background: rgba(255,152,0,.08); border-top: 1px solid rgba(255,152,0,.3); color: var(--av-muted); font-size: .75rem; text-align: center; padding: .6rem; margin-top: 2rem; }
+    .section-title  { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--av-muted); margin-bottom: .6rem; }
+    .tier-badge     { display: inline-block; padding: .25rem .7rem; border-radius: 20px; font-size: .78rem; font-weight: 600; }
+    .tier-ok        { background: rgba(76,175,80,.15); color: #81c784; }
+    .tier-warn      { background: rgba(255,152,0,.15); color: #ffb74d; }
+    .tier-danger    { background: rgba(244,67,54,.15); color: #ef9a9a; }
+    canvas { max-width: 100%; }
+  </style>
+</head>
+<body>
+
+<!-- ── Navbar ── -->
+<nav class="navbar navbar-expand-lg px-3 py-2">
+  <span class="navbar-brand fw-bold" style="color:var(--av-primary)">📊 AlphaVest</span>
+  <div class="d-flex align-items-center gap-2 ms-auto" id="header-right">
+    <span id="mode-badge" class="badge-paper text-white">PAPER MODE</span>
+    <span id="sample-badge" class="badge-sample text-white d-none">SAMPLE DATA</span>
+  </div>
+</nav>
+
+<!-- ── Not-advice banner ── -->
+<div class="not-advice-bar">
+  ⚠️ <strong>Analysis only — not financial advice.</strong>
+  Every buy/sell decision is made and executed by you. No automated execution.
+</div>
+
+<!-- ── Main content ── -->
+<div class="container-fluid px-3 py-3" style="max-width:1400px">
+
+  <!-- Header metrics row -->
+  <div class="row g-3 mb-3" id="header-metrics">
+    <div class="col-12 col-sm-6 col-md-3">
+      <div class="metric-card">
+        <div class="metric-label">Portfolio value</div>
+        <div class="metric-value" id="m-portfolio">—</div>
+        <div class="metric-delta neu" id="m-cash">—</div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <div class="metric-card">
+        <div class="metric-label">System YTD</div>
+        <div class="metric-value" id="m-sys-ytd">—</div>
+        <div class="metric-delta" id="m-bench-ytd">—</div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <div class="metric-card">
+        <div class="metric-label">Drawdown</div>
+        <div class="metric-value" id="m-drawdown">—</div>
+        <div class="metric-delta" id="m-cb-status">—</div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 col-md-3">
+      <div class="metric-card">
+        <div class="metric-label">Last updated</div>
+        <div class="metric-value" style="font-size:1rem;line-height:1.4" id="m-updated">—</div>
+        <div class="metric-delta neu" id="m-mode-text">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <ul class="nav nav-tabs mb-3" id="main-tabs">
+    <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#tab-overview">Overview</a></li>
+    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab-alerts" id="alert-tab-label">Alerts</a></li>
+    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab-cal">Calibration</a></li>
+    <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab-risk">Risk</a></li>
+  </ul>
+
+  <div class="tab-content">
+
+    <!-- ══ OVERVIEW ══ -->
+    <div class="tab-pane fade show active" id="tab-overview">
+      <div class="row g-3">
+        <!-- Left: holdings + sector -->
+        <div class="col-12 col-lg-5">
+          <div class="card mb-3">
+            <div class="card-body p-0">
+              <div class="section-title px-3 pt-3">Holdings</div>
+              <div style="overflow-x:auto">
+                <table class="table table-striped table-sm mb-0" id="holdings-table">
+                  <thead>
+                    <tr id="holdings-thead-row"><th>Ticker</th><th>Sleeve</th><th>Sector</th><th>Shares</th><th>Avg cost</th><th style="text-align:right">Weight</th></tr>
+                  </thead>
+                  <tbody id="holdings-body"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="section-title">Sector exposure</div>
+              <canvas id="sector-chart" height="220"></canvas>
+            </div>
+          </div>
+        </div>
+        <!-- Right: sys vs benchmark -->
+        <div class="col-12 col-lg-7">
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="section-title">System vs Benchmark — YTD %</div>
+              <div id="history-sample-note" class="text-muted small mb-2 d-none">Showing sample data — no real P&amp;L recorded yet.</div>
+              <canvas id="pl-chart" height="260"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /tab-overview -->
+
+    <!-- ══ ALERTS ══ -->
+    <div class="tab-pane fade" id="tab-alerts">
+      <div id="alerts-container">
+        <p class="text-muted">No alerts today — "No trade" is a valid, common outcome.</p>
+      </div>
+    </div>
+
+    <!-- ══ CALIBRATION ══ -->
+    <div class="tab-pane fade" id="tab-cal">
+      <div class="mb-3">
+        <p class="small text-muted">
+          A well-calibrated system: when it says 70% confidence, ~70% of those signals succeed.
+          Points <strong>below</strong> the diagonal = overconfident; <strong>above</strong> = underconfident.
+        </p>
+        <div id="cal-sample-note" class="d-none alert alert-warning py-2 small">
+          Showing sample calibration data — run Phase 5 backtest to see real figures.
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-12 col-md-6">
+          <div class="card"><div class="card-body">
+            <div class="section-title">Swing sleeve</div>
+            <canvas id="cal-swing-chart" height="300"></canvas>
+            <div id="cal-swing-verdict" class="mt-2"></div>
+          </div></div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="card"><div class="card-body">
+            <div class="section-title">Core sleeve</div>
+            <canvas id="cal-core-chart" height="300"></canvas>
+            <div id="cal-core-verdict" class="mt-2"></div>
+          </div></div>
+        </div>
+      </div>
+      <p class="text-muted small mt-3">Brier score: 0 = perfect, 0.25 = random guess. Confidence is suppressed until enough labelled outcomes exist (§4.7).</p>
+    </div>
+
+    <!-- ══ RISK ══ -->
+    <div class="tab-pane fade" id="tab-risk">
+      <div class="row g-3 mb-3">
+        <div class="col-12 col-md-4">
+          <div class="card h-100"><div class="card-body">
+            <div class="section-title">Circuit breaker &amp; drawdown tiers</div>
+            <div id="cb-state" class="mb-3"></div>
+            <div class="section-title mt-3">Hard caps</div>
+            <div id="caps-text"></div>
+          </div></div>
+        </div>
+        <div class="col-12 col-md-8">
+          <div class="card h-100"><div class="card-body">
+            <div class="section-title">Position weight vs 8% single-name cap</div>
+            <canvas id="caps-chart" height="300"></canvas>
+            <div id="caps-breach-note" class="mt-2 d-none text-danger small">
+              ⚠️ One or more positions exceed the 8% single-name cap (red bars).
+            </div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /tab-content -->
+</div><!-- /container -->
+
+<!-- Bootstrap + Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+
+<script>
+'use strict';
+
+// ── Chart.js global defaults ───────────────────────────────────────────────────
+Chart.defaults.color = '#8a8fa8';
+Chart.defaults.borderColor = '#2a2d3a';
+Chart.defaults.font.family = "'Segoe UI', system-ui, sans-serif";
+
+const CHART_BG  = 'rgba(0,0,0,0)';
+const C_BLUE    = '#4a9eff';
+const C_RED     = '#f44336';
+const C_ORANGE  = '#ff9800';
+const C_GREEN   = '#4caf50';
+const C_MUTED   = '#78909c';
+
+let _charts = {};
+function destroyChart(id) { if (_charts[id]) { _charts[id].destroy(); delete _charts[id]; } }
+
+// ── Sector colours (static map) ────────────────────────────────────────────────
+const SECTOR_MAP = {
+  VTI:'Broad Market', VOO:'Broad Market', QQQ:'Technology ETF', SCHD:'Dividend ETF',
+  SMH:'Semiconductors', XLE:'Energy', XLV:'Health Care', XLF:'Financials',
+  NVDA:'Technology', TSM:'Technology', AVGO:'Technology', QCOM:'Technology',
+  INTC:'Technology', AMGN:'Health Care', CVX:'Energy', XOM:'Energy',
+  NOK:'Communication', ASTS:'Communication', COIN:'Financials',
+  MU:'Technology', AMD:'Technology', DELL:'Technology',
+};
+function sectorOf(ticker) { return SECTOR_MAP[ticker] || 'Other'; }
+
+// ── Data loading (fetch from same dir, fall back to empty obj) ─────────────────
+async function fetchJson(name) {
+  try {
+    const r = await fetch(`./${name}?_=${Date.now()}`);
+    if (!r.ok) throw new Error(r.status);
+    return await r.json();
+  } catch { return null; }
+}
+
+async function loadAll() {
+  const [snap, hist, cal] = await Promise.all([
+    fetchJson('dashboard.json'),
+    fetchJson('history.json'),
+    fetchJson('calibration.json'),
+  ]);
+  return { snap, hist, cal };
+}
+
+// ── Rendering ──────────────────────────────────────────────────────────────────
+
+function fmtPct(v, digits=1) {
+  if (v == null) return '—';
+  const s = v >= 0 ? `+${v.toFixed(digits)}%` : `${v.toFixed(digits)}%`;
+  return s;
+}
+function fmtUsd(v) { return v == null ? '—' : `$${v.toLocaleString('en-US', {maximumFractionDigits:0})}`; }
+
+function renderHeader(snap, sampleSnap, sampleHist) {
+  const mode = snap.mode || 'paper';
+  const badge = document.getElementById('mode-badge');
+  if (mode === 'live') { badge.textContent = '🔴 LIVE MODE'; badge.className = 'badge-live text-white'; }
+  else { badge.textContent = 'PAPER MODE'; badge.className = 'badge-paper text-white'; }
+
+  if (sampleSnap) document.getElementById('sample-badge').classList.remove('d-none');
+
+  document.getElementById('m-portfolio').textContent = fmtUsd(snap.portfolio_value);
+  document.getElementById('m-cash').textContent = 'Cash: ' + fmtUsd(snap.cash);
+
+  const sys = snap.benchmark?.system_ytd ?? 0;
+  const bench = snap.benchmark?.benchmark_ytd ?? 0;
+  const bsym  = snap.benchmark?.symbol || 'SPY';
+  const delta = sys - bench;
+  const sysEl = document.getElementById('m-sys-ytd');
+  sysEl.textContent = fmtPct(sys);
+  sysEl.style.color = sys >= 0 ? C_GREEN : C_RED;
+  const bdEl = document.getElementById('m-bench-ytd');
+  bdEl.textContent = `${fmtPct(delta)} vs ${bsym} (${fmtPct(bench)})`;
+  bdEl.className = `metric-delta ${delta >= 0 ? 'pos' : 'neg'}`;
+
+  const dd = snap.risk?.current_drawdown_pct ?? 0;
+  const cb = snap.risk?.circuit_breaker ?? false;
+  const ddEl = document.getElementById('m-drawdown');
+  ddEl.textContent = `${dd.toFixed(1)}%`;
+  ddEl.style.color = dd >= 20 ? C_RED : dd >= 10 ? C_ORANGE : C_GREEN;
+  document.getElementById('m-cb-status').textContent = cb
+    ? '🔴 Circuit breaker ACTIVE' : dd >= 10
+    ? '🟡 Tier 1 (risk halved)' : '🟢 Normal';
+
+  const ts = snap.last_updated
+    ? new Date(snap.last_updated).toLocaleString('en-US', {dateStyle:'short', timeStyle:'short'})
+    : '—';
+  document.getElementById('m-updated').textContent = ts;
+  document.getElementById('m-mode-text').textContent = `Mode: ${mode.toUpperCase()}` + (sampleSnap ? ' · sample' : '');
+
+  // Alert tab badge
+  const n = (snap.alerts || []).length;
+  document.getElementById('alert-tab-label').textContent = n ? `Alerts (${n})` : 'Alerts';
+}
+
+function renderHoldings(snap) {
+  const holdings = snap.current_holdings || [];
+  const isPrivate = snap.sanitized === true;
+  const cols = isPrivate ? 4 : 6;
+  const tbody = document.getElementById('holdings-body');
+
+  // Update header columns to match whether private data is present.
+  const theadRow = document.getElementById('holdings-thead-row');
+  if (theadRow) {
+    theadRow.innerHTML = isPrivate
+      ? '<th>Ticker</th><th>Sleeve</th><th>Sector</th><th style="text-align:right">Weight</th>'
+      : '<th>Ticker</th><th>Sleeve</th><th>Sector</th><th>Shares</th><th>Avg cost</th><th style="text-align:right">Weight</th>';
+  }
+
+  if (!holdings.length) {
+    tbody.innerHTML = `<tr><td colspan="${cols}" class="text-muted text-center py-3">No holdings imported</td></tr>`;
+    return;
+  }
+
+  const sorted = [...holdings].sort((a,b) => b.weight_pct - a.weight_pct);
+  tbody.innerHTML = sorted.map(h => {
+    const over8 = h.weight_pct > 8;
+    const wtStyle = `text-align:right;color:${over8 ? C_RED : 'inherit'};font-weight:${over8?700:400}`;
+    if (isPrivate) {
+      return `<tr>
+        <td><strong>${h.ticker}</strong></td>
+        <td><span class="badge text-bg-secondary">${h.sleeve}</span></td>
+        <td style="font-size:.8rem;color:var(--av-muted)">${sectorOf(h.ticker)}</td>
+        <td style="${wtStyle}">${h.weight_pct.toFixed(1)}%</td>
+      </tr>`;
+    }
+    return `<tr>
+      <td><strong>${h.ticker}</strong></td>
+      <td><span class="badge text-bg-secondary">${h.sleeve}</span></td>
+      <td style="font-size:.8rem;color:var(--av-muted)">${sectorOf(h.ticker)}</td>
+      <td>${h.shares.toFixed(1)}</td>
+      <td>$${h.avg_cost.toFixed(2)}</td>
+      <td style="${wtStyle}">${h.weight_pct.toFixed(1)}%</td>
+    </tr>`;
+  }).join('');
+}
+
+function renderSectorChart(snap) {
+  const holdings = snap.current_holdings || [];
+  const agg = {};
+  holdings.forEach(h => { const s = sectorOf(h.ticker); agg[s] = (agg[s]||0) + h.weight_pct; });
+  const entries = Object.entries(agg).sort((a,b) => a[1]-b[1]);
+  const labels = entries.map(e=>e[0]);
+  const data   = entries.map(e=>e[1]);
+  const colors = data.map(v => v > 25 ? C_RED : C_BLUE);
+
+  destroyChart('sector');
+  const ctx = document.getElementById('sector-chart').getContext('2d');
+  _charts.sector = new Chart(ctx, {
+    type: 'bar',
+    data: { labels, datasets: [{ data, backgroundColor: colors, borderRadius: 3 }] },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: c => ` ${c.raw.toFixed(1)}%` } },
+        annotation: undefined,
+      },
+      scales: {
+        x: { grid: { color: '#2a2d3a' }, ticks: { callback: v => v+'%' } },
+        y: { grid: { display: false } },
+      },
+    },
+  });
+}
+
+function renderBenchmarkChart(histRows, isSample, benchSym) {
+  if (isSample) document.getElementById('history-sample-note').classList.remove('d-none');
+  if (!histRows || !histRows.length) return;
+
+  const labels = histRows.map(r => r.snapshot_date);
+  const sysVals = histRows.map(r => r.system_ytd_pct);
+  const bchVals = histRows.map(r => r.benchmark_ytd_pct);
+
+  destroyChart('pl');
+  const ctx = document.getElementById('pl-chart').getContext('2d');
+  _charts.pl = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'System (paper)', data: sysVals,
+          borderColor: C_BLUE, backgroundColor: 'rgba(74,158,255,.07)',
+          fill: true, tension: 0.3, pointRadius: 0, pointHoverRadius: 4,
+        },
+        {
+          label: `${benchSym || 'SPY'} (total return)`, data: bchVals,
+          borderColor: C_RED, backgroundColor: 'transparent',
+          borderDash: [5,3], tension: 0.3, pointRadius: 0, pointHoverRadius: 4,
+        },
+      ],
+    },
+    options: {
+      responsive: true,
+      interaction: { mode: 'index', intersect: false },
+      plugins: { legend: { position: 'top' } },
+      scales: {
+        x: { grid: { color: '#2a2d3a' }, ticks: { maxTicksLimit: 8, maxRotation: 0 } },
+        y: { grid: { color: '#2a2d3a' }, ticks: { callback: v => v.toFixed(1)+'%' } },
+      },
+    },
+  });
+}
+
+// ── Alerts ─────────────────────────────────────────────────────────────────────
+
+function pillarBars(pillar, agreeing, conflicting) {
+  const fields = [
+    ['trend_momentum',       'Trend / Momentum'],
+    ['value',                'Value'],
+    ['quality',              'Quality'],
+    ['sentiment',            'Sentiment'],
+    ['volatility_liquidity', 'Volatility / Liq.'],
+  ];
+  return fields.map(([key, label]) => {
+    const val = pillar[key] ?? 50;
+    const col = agreeing.includes(key) ? C_GREEN : conflicting.includes(key) ? C_RED : C_MUTED;
+    return `<div class="pillar-bar-wrap d-flex align-items-center gap-2">
+      <div class="pillar-label">${label}</div>
+      <div class="pillar-track"><div class="pillar-fill" style="width:${val}%;background:${col}"></div></div>
+      <div class="pillar-val" style="color:${col}">${Math.round(val)}</div>
+    </div>`;
+  }).join('');
+}
+
+function driverRows(drv) {
+  const fields = [
+    ['data_quality','Data quality'],['regime_fit','Regime fit'],
+    ['freshness','Freshness'],['robustness','Robustness'],['liquidity','Liquidity'],
+  ];
+  return fields.map(([k,l]) => {
+    const v = drv[k] ?? 1;
+    const col = v >= 0.8 ? C_GREEN : v >= 0.5 ? C_ORANGE : C_RED;
+    return `<div class="driver-row"><span style="color:var(--av-muted)">${l}</span><span style="color:${col};font-weight:600">${Math.round(v*100)}%</span></div>`;
+  }).join('');
+}
+
+function renderAlerts(snap) {
+  const alerts = snap.alerts || [];
+  const container = document.getElementById('alerts-container');
+  if (!alerts.length) {
+    container.innerHTML = '<p class="text-muted">No alerts today — "No trade" is a valid, common outcome. Check back after the next daily run.</p>';
+    return;
+  }
+
+  const typeBadge = {ADD:'badge-add',TRIM:'badge-trim',EXIT:'badge-exit',WATCH:'badge-watch'};
+
+  container.innerHTML = alerts.map((a, idx) => {
+    const confStr = a.confidence_pct != null
+      ? `${a.confidence_pct.toFixed(0)}% (${a.confidence_band||'N/A'})`
+      : 'N/A — uncalibrated';
+    const sizeStr  = a.suggested_size_pct != null ? `${a.suggested_size_pct.toFixed(1)}%` : '—';
+    const riskStr  = a.risk_pct != null ? `${a.risk_pct.toFixed(2)}% equity` : '—';
+    const pillar   = a.pillar_breakdown || {};
+    const agreeing = pillar.agreeing || [];
+    const conflicting = pillar.conflicting || [];
+    const drv      = a.confidence_drivers || {};
+    const hist     = a.historical_base || {};
+    const regime   = pillar.regime || 'neutral';
+    const regIcon  = {on:'🟢',off:'🔴',neutral:'⚪'}[regime] || '⚪';
+    const llmBadge = {explain:'💬 explain',caution:'⚡ caution',veto:'🚫 veto'}[a.llm_action] || '';
+    const specTag  = a.speculative ? '<span class="badge badge-spec ms-1">Speculative</span>' : '';
+    const er = drv.event_risk && drv.event_risk !== 'none'
+      ? `<div class="alert alert-warning py-1 px-2 small mt-2">Event risk: ${drv.event_risk}</div>` : '';
+    const redFlagsHtml = (a.red_flags||[]).map(f =>
+      `<div class="alert alert-danger py-1 px-2 small mb-1">⚠️ ${f}</div>`).join('');
+    const distrustHtml = (a.reasons_to_distrust||[]).map(d =>
+      `<div class="alert alert-warning py-1 px-2 small mb-1">⚡ ${d}</div>`).join('');
+
+    const benchLine = a.system_ytd_pct != null && a.benchmark_ytd_pct != null
+      ? `<div class="text-muted small">vs Benchmark YTD: System ${fmtPct(a.system_ytd_pct)} / ${a.benchmark_symbol||'SPY'} ${fmtPct(a.benchmark_ytd_pct)}</div>` : '';
+
+    return `
+    <div class="card alert-card mb-3">
+      <div class="card-header" data-bs-toggle="collapse" data-bs-target="#alert-body-${idx}">
+        <span class="badge ${typeBadge[a.alert_type]||'badge-watch'} me-1">${a.alert_type}</span>
+        <strong>${a.ticker}</strong>${specTag}
+        <span class="badge text-bg-secondary ms-1">${a.sleeve}</span>
+        <span class="ms-auto text-muted small">Conviction <strong style="color:var(--av-text)">${a.conviction}</strong> · Confidence <strong style="color:var(--av-text)">${confStr}</strong></span>
+        <i class="bi bi-chevron-down ms-2 text-muted"></i>
+      </div>
+      <div class="collapse ${a.alert_type==='ADD'?'show':''}" id="alert-body-${idx}">
+        <div class="card-body">
+          <!-- Top metrics -->
+          <div class="row g-2 mb-3">
+            <div class="col-6 col-md-3"><div class="metric-card p-2"><div class="metric-label">Conviction</div><div class="metric-value" style="font-size:1.3rem">${a.conviction}/100</div></div></div>
+            <div class="col-6 col-md-3"><div class="metric-card p-2"><div class="metric-label">Confidence</div><div class="metric-value" style="font-size:1.1rem">${confStr}</div></div></div>
+            <div class="col-6 col-md-3"><div class="metric-card p-2"><div class="metric-label">Suggested size</div><div class="metric-value" style="font-size:1.3rem">${sizeStr}</div></div></div>
+            <div class="col-6 col-md-3"><div class="metric-card p-2"><div class="metric-label">Risk at stake</div><div class="metric-value" style="font-size:1.1rem">${riskStr}</div></div></div>
+          </div>
+          <div class="row g-3">
+            <!-- Pillars -->
+            <div class="col-12 col-md-5">
+              <div class="section-title">Pillars — ${regIcon} regime ${regime}</div>
+              ${pillarBars(pillar, agreeing, conflicting)}
+              <div class="section-title mt-3">Confidence drivers</div>
+              ${driverRows(drv)}
+              ${er}
+              <div class="text-muted small mt-1">LLM: ${llmBadge}</div>
+            </div>
+            <!-- Rationale etc -->
+            <div class="col-12 col-md-7">
+              <div class="section-title">Rationale</div>
+              <p style="font-size:.88rem">${a.rationale || '—'}</p>
+              ${a.news_summary ? `<div class="section-title">News</div><p class="text-muted small">${a.news_summary}</p>` : ''}
+              ${redFlagsHtml}
+              ${distrustHtml}
+              <div class="section-title">Historical base</div>
+              <div class="text-muted small">
+                ${hist.analogous_cases||0} analogous cases ·
+                Hit rate ${((hist.hit_rate||0)*100).toFixed(0)}% ·
+                Cal. error ±${(hist.calibration_error_pct||0).toFixed(1)}% ·
+                Expected ${(hist.expected_range?.[0]||0).toFixed(1)}% – ${(hist.expected_range?.[1]||0).toFixed(1)}%
+              </div>
+              ${benchLine}
+              <div class="mt-2 text-muted" style="font-size:.7rem">⚠️ Analysis only — not financial advice. Human executes all trades.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── Calibration ────────────────────────────────────────────────────────────────
+
+function renderCalibration(cal, isSample) {
+  if (isSample) document.getElementById('cal-sample-note').classList.remove('d-none');
+
+  ['swing','core'].forEach(sleeve => {
+    const d = cal[sleeve];
+    const canvasId = `cal-${sleeve}-chart`;
+    const verdictId = `cal-${sleeve}-verdict`;
+    destroyChart(`cal-${sleeve}`);
+
+    if (!d) {
+      document.getElementById(verdictId).innerHTML = '<span class="text-muted small">No data yet — run Phase 5 gate.</span>';
+      return;
+    }
+
+    const bins = d.bins || [];
+    const brier = d.brier_score;
+    const ctx = document.getElementById(canvasId).getContext('2d');
+    _charts[`cal-${sleeve}`] = new Chart(ctx, {
+      type: 'scatter',
+      data: {
+        datasets: [
+          {
+            label: 'Perfect calibration',
+            data: [{x:0,y:0},{x:100,y:100}],
+            type: 'line',
+            borderColor: '#444', borderDash: [4,3], pointRadius: 0,
+            borderWidth: 1, tension: 0,
+          },
+          {
+            label: `${sleeve} sleeve`,
+            data: bins.map(b => ({x: b.bin_center, y: b.hit_rate, r: Math.max(4, Math.min(16, b.n/3))})),
+            backgroundColor: 'rgba(74,158,255,.7)',
+            borderColor: C_BLUE,
+            type: 'bubble',
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        scales: {
+          x: { title:{display:true,text:'Predicted confidence %'}, min:-5, max:105, grid:{color:'#2a2d3a'} },
+          y: { title:{display:true,text:'Actual hit rate %'},       min:-5, max:105, grid:{color:'#2a2d3a'} },
+        },
+        plugins: {
+          legend: { position: 'bottom' },
+          tooltip: { callbacks: { label: ctx => {
+            const d = ctx.raw;
+            return ` Pred ${d.x.toFixed(0)}% → Actual ${d.y.toFixed(1)}% (n~${Math.round(d.r*3)})`;
+          }}},
+        },
+      },
+    });
+
+    const verdictEl = document.getElementById(verdictId);
+    if (brier != null) {
+      const [cls, msg] = brier <= 0.15 ? ['text-success','✅ Excellent calibration']
+                       : brier <= 0.25 ? ['text-info',   '✅ Acceptable']
+                       :                 ['text-warning', '⚠️ Recalibrate before sizing up'];
+      verdictEl.innerHTML = `<span class="${cls} small">Brier ${brier.toFixed(3)} — ${msg} · n=${d.n_samples||0}</span>`;
+    }
+  });
+}
+
+// ── Risk tab ───────────────────────────────────────────────────────────────────
+
+// renderRisk is split into static (safe to run while tab is hidden) and
+// chart (must wait until the canvas is visible — see shown.bs.tab handler).
+function renderRiskStatic(snap) {
+  const risk = snap.risk || {};
+  const dd = risk.current_drawdown_pct ?? 0;
+  const cb = risk.circuit_breaker ?? false;
+  const [tierCls, tierMsg] = cb
+    ? ['tier-danger','🔴 Circuit breaker ACTIVE — new swing entries paused (drawdown ≥20%)']
+    : dd >= 10
+    ? ['tier-warn',  '🟡 Tier 1 — Risk-per-trade halved (drawdown ≥10%)']
+    : ['tier-ok',    '🟢 Normal — All tiers inactive'];
+  document.getElementById('cb-state').innerHTML =
+    `<div class="tier-badge ${tierCls}">${tierMsg}</div>
+     <div class="mt-3 text-muted small">Current drawdown: <strong style="color:${dd>=20?C_RED:dd>=10?C_ORANGE:C_GREEN}">${dd.toFixed(1)}%</strong></div>`;
+  document.getElementById('caps-text').innerHTML = `
+    <div class="driver-row"><span>Max single position</span><strong>${risk.max_position_pct??8}%</strong></div>
+    <div class="driver-row"><span>Max sector</span><strong>${risk.max_sector_pct??25}%</strong></div>
+    <div class="driver-row"><span>Mode</span><strong>${snap.mode||'paper'}</strong></div>
+    <div class="driver-row"><span>Action required</span><strong>${snap.action_required?'Yes':'No'}</strong></div>
+  `;
+}
+
+function renderRiskChart(snap) {
+  const holdings = snap.current_holdings || [];
+  if (!holdings.length) return;
+  const sorted = [...holdings].sort((a,b) => a.weight_pct - b.weight_pct);
+  const labels = sorted.map(h => h.ticker);
+  const data   = sorted.map(h => h.weight_pct);
+  const colors = data.map(v => v > 8 ? C_RED : C_BLUE);
+  if (data.some(v => v > 8)) document.getElementById('caps-breach-note').classList.remove('d-none');
+  destroyChart('caps');
+  const ctx = document.getElementById('caps-chart').getContext('2d');
+  _charts.caps = new Chart(ctx, {
+    type: 'bar',
+    data: { labels, datasets: [{ data, backgroundColor: colors, borderRadius: 3 }] },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${c.raw.toFixed(1)}%` } } },
+      scales: {
+        x: { grid: { color: '#2a2d3a' }, ticks: { callback: v => v+'%' }, max: Math.max(...data, 10) * 1.15 },
+        y: { grid: { display: false } },
+      },
+    },
+  });
+}
+
+// ── Main ───────────────────────────────────────────────────────────────────────
+
+(async () => {
+  const { snap, hist, cal } = await loadAll();
+
+  const sampleSnap = !snap;
+  const sampleHist = !hist;
+  const sampleCal  = !cal;
+
+  const activSnap  = snap || SAMPLE_SNAP;
+  const activeHist = hist || SAMPLE_HIST;
+  const activeCal  = cal  || SAMPLE_CAL;
+
+  const benchSym = activSnap.benchmark?.symbol || 'SPY';
+
+  // ── Render immediately (first tab is visible, static HTML is always safe) ──
+  renderHeader(activSnap, sampleSnap, sampleHist);
+  renderHoldings(activSnap);
+  renderAlerts(activSnap);
+  renderSectorChart(activSnap);                          // Overview (active) ✓
+  renderBenchmarkChart(activeHist, sampleHist, benchSym); // Overview (active) ✓
+  renderRiskStatic(activSnap);                           // non-chart — safe ✓
+
+  // ── Defer chart rendering for hidden tabs ──────────────────────────────────
+  // Chart.js measures the canvas at init time; hidden panes have 0×0 dimensions
+  // which produces a blank chart. We render on first shown.bs.tab instead.
+  let calRendered  = false;
+  let riskRendered = false;
+
+  document.addEventListener('shown.bs.tab', (e) => {
+    const href = e.target.getAttribute('href') || e.target.dataset.bsTarget;
+    if (href === '#tab-cal' && !calRendered) {
+      renderCalibration(activeCal, sampleCal);
+      calRendered = true;
+    }
+    if (href === '#tab-risk' && !riskRendered) {
+      renderRiskChart(activSnap);
+      riskRendered = true;
+    }
+    // Resize every chart so they fill their containers after layout settles
+    Object.values(_charts).forEach(c => { try { c.resize(); } catch (_) {} });
+  });
+})();
+</script>
+
+<!-- ── Inline sample data (fallback when JSON files aren't reachable) ── -->
+<script id="sample-data-script">
+// Generated by scripts/export_dashboard.py — do not edit by hand.
+const SAMPLE_SNAP = {"schema_version": "1.0", "last_updated": "2026-06-01T05:55:34.006993", "mode": "paper", "sanitized": true, "action_required": true, "benchmark": {"symbol": "SPY", "system_ytd": 0.0, "benchmark_ytd": 0.0}, "risk": {"max_position_pct": 8.0, "max_sector_pct": 25.0, "current_drawdown_pct": 0.0, "circuit_breaker": false}, "current_holdings": [{"ticker": "VOO", "weight_pct": 22.92, "sleeve": "core"}, {"ticker": "VTI", "weight_pct": 13.95, "sleeve": "core"}, {"ticker": "NVDA", "weight_pct": 12.17, "sleeve": "core"}, {"ticker": "ASTS", "weight_pct": 7.65, "sleeve": "core"}, {"ticker": "QQQ", "weight_pct": 6.79, "sleeve": "core"}, {"ticker": "TSM", "weight_pct": 6.64, "sleeve": "core"}, {"ticker": "SMH", "weight_pct": 5.07, "sleeve": "core"}, {"ticker": "COIN", "weight_pct": 4.03, "sleeve": "core"}, {"ticker": "QCOM", "weight_pct": 3.88, "sleeve": "core"}, {"ticker": "AMGN", "weight_pct": 3.43, "sleeve": "core"}, {"ticker": "XLV", "weight_pct": 3.3, "sleeve": "core"}, {"ticker": "CVX", "weight_pct": 3.24, "sleeve": "core"}, {"ticker": "XLE", "weight_pct": 2.56, "sleeve": "core"}, {"ticker": "AVGO", "weight_pct": 2.53, "sleeve": "core"}, {"ticker": "SCHD", "weight_pct": 1.17, "sleeve": "core"}, {"ticker": "NOK", "weight_pct": 0.68, "sleeve": "core"}], "alerts": [{"schema_version": "1.0", "generated_at": "2026-06-01T05:55:34.006584Z", "mode": "paper", "ticker": "TSM", "sleeve": "swing", "alert_type": "ADD", "speculative": false, "conviction": 74, "confidence_pct": 67.5, "confidence_band": "Moderate", "suggested_size_pct": 2.8, "risk_pct": 0.72, "pillar_breakdown": {"trend_momentum": 78.0, "value": 65.0, "quality": 82.0, "sentiment": 59.0, "regime": "on", "volatility_liquidity": 55.0, "agreeing": ["trend_momentum", "quality", "regime"], "conflicting": ["sentiment"]}, "confidence_drivers": {"data_quality": 0.9, "regime_fit": 0.88, "event_risk": "none", "freshness": 0.95, "robustness": 0.75, "liquidity": 0.9}, "historical_base": {"analogous_cases": 62, "hit_rate": 0.61, "calibration_error_pct": 4.2, "expected_range": [-2.1, 12.4]}, "strategy_version": "0.1.0", "llm_action": "explain", "rationale": "TSM shows strong momentum above both moving averages with MACD turning positive. Quality metrics are solid — ROIC at 22% and expanding margins confirm the thesis. Regime is open (SPY above 200-day SMA) and the setup clears the cost-aware net-edge check. Sentiment is slightly negative on near-term China tariff headlines but not disqualifying.", "news_summary": "TSMC reported strong quarterly revenue guidance; AI chip demand remains the key driver.", "red_flags": ["Geopolitical risk — Taiwan Strait uncertainty not fully priced in"], "reasons_to_distrust": ["Sentiment pillar in mild conflict; tariff headlines"], "not_advice": true, "system_ytd_pct": 4.2, "benchmark_ytd_pct": 8.7, "benchmark_symbol": "SPY"}, {"schema_version": "1.0", "generated_at": "2026-06-01T05:55:34.006584Z", "mode": "paper", "ticker": "NVDA", "sleeve": "core", "alert_type": "WATCH", "speculative": false, "conviction": 62, "confidence_pct": 58.0, "confidence_band": "Moderate", "suggested_size_pct": null, "risk_pct": null, "pillar_breakdown": {"trend_momentum": 55.0, "value": 34.0, "quality": 90.0, "sentiment": 72.0, "regime": "on", "volatility_liquidity": 42.0, "agreeing": ["quality", "sentiment", "regime"], "conflicting": ["value"]}, "confidence_drivers": {"data_quality": 0.95, "regime_fit": 0.8, "event_risk": "none", "freshness": 0.95, "robustness": 0.65, "liquidity": 0.9}, "historical_base": {"analogous_cases": 88, "hit_rate": 0.55, "calibration_error_pct": 6.1, "expected_range": [-2.1, 12.4]}, "strategy_version": "0.1.0", "llm_action": "caution", "rationale": "NVDA quality metrics are exceptional but the valuation pillar is in conflict — P/E and EV/EBITDA are at the 91st percentile of its own history. Conviction does not clear the core ADD threshold; WATCH status maintained. Position already at ~20% of the account — well above the 8% single-name cap.", "news_summary": "NVDA forward guidance beat estimates; management cited continued hyperscaler AI capex.", "red_flags": ["NVDA already ~20% of portfolio — exceeds 8% single-name cap", "Semiconductor sector (NVDA+SMH+TSM+AVGO+QCOM) ~34% — exceeds 25% sector cap"], "reasons_to_distrust": ["Valuation pillar in conflict (P/E at 91st percentile)"], "not_advice": true, "system_ytd_pct": 4.2, "benchmark_ytd_pct": 8.7, "benchmark_symbol": "SPY"}]};
+const SAMPLE_HIST = [{"snapshot_date": "2026-03-04", "system_ytd_pct": -0.079, "benchmark_ytd_pct": -0.123, "drawdown_pct": 0.079}, {"snapshot_date": "2026-03-05", "system_ytd_pct": -0.133, "benchmark_ytd_pct": 0.58, "drawdown_pct": 0.133}, {"snapshot_date": "2026-03-06", "system_ytd_pct": -0.2, "benchmark_ytd_pct": -0.795, "drawdown_pct": 0.2}, {"snapshot_date": "2026-03-07", "system_ytd_pct": 0.082, "benchmark_ytd_pct": -1.008, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-08", "system_ytd_pct": -0.052, "benchmark_ytd_pct": -0.858, "drawdown_pct": 0.052}, {"snapshot_date": "2026-03-09", "system_ytd_pct": 0.153, "benchmark_ytd_pct": 0.281, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-10", "system_ytd_pct": 0.68, "benchmark_ytd_pct": 0.426, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-11", "system_ytd_pct": 0.152, "benchmark_ytd_pct": -0.493, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-12", "system_ytd_pct": 0.368, "benchmark_ytd_pct": 0.786, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-13", "system_ytd_pct": 0.429, "benchmark_ytd_pct": 0.725, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-14", "system_ytd_pct": 0.861, "benchmark_ytd_pct": -0.608, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-15", "system_ytd_pct": 0.655, "benchmark_ytd_pct": -0.105, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-16", "system_ytd_pct": 1.345, "benchmark_ytd_pct": -0.292, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-17", "system_ytd_pct": 1.66, "benchmark_ytd_pct": -0.017, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-18", "system_ytd_pct": 2.281, "benchmark_ytd_pct": -1.029, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-19", "system_ytd_pct": 2.741, "benchmark_ytd_pct": -2.42, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-20", "system_ytd_pct": 0.791, "benchmark_ytd_pct": -2.954, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-21", "system_ytd_pct": 0.128, "benchmark_ytd_pct": -2.086, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-22", "system_ytd_pct": 0.66, "benchmark_ytd_pct": -3.198, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-23", "system_ytd_pct": 1.331, "benchmark_ytd_pct": -4.105, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-24", "system_ytd_pct": 1.296, "benchmark_ytd_pct": -4.343, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-25", "system_ytd_pct": 1.412, "benchmark_ytd_pct": -3.529, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-26", "system_ytd_pct": 1.925, "benchmark_ytd_pct": -3.159, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-27", "system_ytd_pct": 2.446, "benchmark_ytd_pct": -2.667, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-28", "system_ytd_pct": 2.002, "benchmark_ytd_pct": -3.304, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-29", "system_ytd_pct": 1.677, "benchmark_ytd_pct": -2.793, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-30", "system_ytd_pct": 1.518, "benchmark_ytd_pct": -0.545, "drawdown_pct": 0.0}, {"snapshot_date": "2026-03-31", "system_ytd_pct": 0.929, "benchmark_ytd_pct": -1.544, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-01", "system_ytd_pct": 1.539, "benchmark_ytd_pct": -0.16, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-02", "system_ytd_pct": 1.952, "benchmark_ytd_pct": 0.669, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-03", "system_ytd_pct": 3.06, "benchmark_ytd_pct": 0.621, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-04", "system_ytd_pct": 2.014, "benchmark_ytd_pct": 0.158, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-05", "system_ytd_pct": 2.765, "benchmark_ytd_pct": -1.166, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-06", "system_ytd_pct": 2.82, "benchmark_ytd_pct": -0.887, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-07", "system_ytd_pct": 2.611, "benchmark_ytd_pct": -0.163, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-08", "system_ytd_pct": 3.08, "benchmark_ytd_pct": 2.07, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-09", "system_ytd_pct": 3.579, "benchmark_ytd_pct": 1.534, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-10", "system_ytd_pct": 3.184, "benchmark_ytd_pct": 0.789, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-11", "system_ytd_pct": 3.934, "benchmark_ytd_pct": 0.293, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-12", "system_ytd_pct": 3.911, "benchmark_ytd_pct": 1.041, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-13", "system_ytd_pct": 3.394, "benchmark_ytd_pct": 0.804, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-14", "system_ytd_pct": 2.032, "benchmark_ytd_pct": -0.179, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-15", "system_ytd_pct": 1.633, "benchmark_ytd_pct": 0.254, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-16", "system_ytd_pct": 2.565, "benchmark_ytd_pct": 0.276, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-17", "system_ytd_pct": 2.793, "benchmark_ytd_pct": 0.475, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-18", "system_ytd_pct": 3.643, "benchmark_ytd_pct": 1.359, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-19", "system_ytd_pct": 3.88, "benchmark_ytd_pct": 0.444, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-20", "system_ytd_pct": 4.593, "benchmark_ytd_pct": 0.844, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-21", "system_ytd_pct": 5.55, "benchmark_ytd_pct": 0.856, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-22", "system_ytd_pct": 7.057, "benchmark_ytd_pct": 0.556, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-23", "system_ytd_pct": 8.291, "benchmark_ytd_pct": 0.705, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-24", "system_ytd_pct": 7.931, "benchmark_ytd_pct": -0.321, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-25", "system_ytd_pct": 7.846, "benchmark_ytd_pct": 1.064, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-26", "system_ytd_pct": 8.494, "benchmark_ytd_pct": 1.755, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-27", "system_ytd_pct": 6.728, "benchmark_ytd_pct": 2.467, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-28", "system_ytd_pct": 7.178, "benchmark_ytd_pct": 1.987, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-29", "system_ytd_pct": 6.733, "benchmark_ytd_pct": 2.025, "drawdown_pct": 0.0}, {"snapshot_date": "2026-04-30", "system_ytd_pct": 8.067, "benchmark_ytd_pct": 1.068, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-01", "system_ytd_pct": 7.774, "benchmark_ytd_pct": 2.395, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-02", "system_ytd_pct": 7.467, "benchmark_ytd_pct": 2.09, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-03", "system_ytd_pct": 7.571, "benchmark_ytd_pct": 0.958, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-04", "system_ytd_pct": 7.767, "benchmark_ytd_pct": -0.145, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-05", "system_ytd_pct": 8.466, "benchmark_ytd_pct": -0.102, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-06", "system_ytd_pct": 10.222, "benchmark_ytd_pct": 0.203, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-07", "system_ytd_pct": 11.284, "benchmark_ytd_pct": -0.989, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-08", "system_ytd_pct": 11.222, "benchmark_ytd_pct": -0.643, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-09", "system_ytd_pct": 12.572, "benchmark_ytd_pct": -2.192, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-10", "system_ytd_pct": 13.351, "benchmark_ytd_pct": -1.593, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-11", "system_ytd_pct": 14.54, "benchmark_ytd_pct": -0.88, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-12", "system_ytd_pct": 14.609, "benchmark_ytd_pct": -1.333, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-13", "system_ytd_pct": 13.696, "benchmark_ytd_pct": -1.108, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-14", "system_ytd_pct": 13.581, "benchmark_ytd_pct": 0.841, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-15", "system_ytd_pct": 13.149, "benchmark_ytd_pct": 1.184, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-16", "system_ytd_pct": 11.993, "benchmark_ytd_pct": 0.85, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-17", "system_ytd_pct": 12.22, "benchmark_ytd_pct": 1.669, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-18", "system_ytd_pct": 13.345, "benchmark_ytd_pct": 1.667, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-19", "system_ytd_pct": 12.53, "benchmark_ytd_pct": 2.14, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-20", "system_ytd_pct": 12.951, "benchmark_ytd_pct": 2.644, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-21", "system_ytd_pct": 12.452, "benchmark_ytd_pct": 3.755, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-22", "system_ytd_pct": 12.548, "benchmark_ytd_pct": 4.456, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-23", "system_ytd_pct": 13.541, "benchmark_ytd_pct": 5.072, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-24", "system_ytd_pct": 13.788, "benchmark_ytd_pct": 7.146, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-25", "system_ytd_pct": 14.002, "benchmark_ytd_pct": 6.907, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-26", "system_ytd_pct": 14.117, "benchmark_ytd_pct": 8.348, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-27", "system_ytd_pct": 14.237, "benchmark_ytd_pct": 8.879, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-28", "system_ytd_pct": 15.17, "benchmark_ytd_pct": 8.434, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-29", "system_ytd_pct": 13.895, "benchmark_ytd_pct": 8.757, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-30", "system_ytd_pct": 14.099, "benchmark_ytd_pct": 8.222, "drawdown_pct": 0.0}, {"snapshot_date": "2026-05-31", "system_ytd_pct": 14.787, "benchmark_ytd_pct": 8.836, "drawdown_pct": 0.0}, {"snapshot_date": "2026-06-01", "system_ytd_pct": 14.065, "benchmark_ytd_pct": 9.366, "drawdown_pct": 0.0}];
+const SAMPLE_CAL  = {"swing": {"bins": [{"bin_center": 5.0, "hit_rate": 0.0, "n": 19}, {"bin_center": 15.0, "hit_rate": 7.9, "n": 22}, {"bin_center": 25.0, "hit_rate": 16.1, "n": 24}, {"bin_center": 35.0, "hit_rate": 34.4, "n": 32}, {"bin_center": 45.0, "hit_rate": 28.4, "n": 13}, {"bin_center": 55.0, "hit_rate": 44.5, "n": 39}, {"bin_center": 65.0, "hit_rate": 58.5, "n": 45}, {"bin_center": 75.0, "hit_rate": 73.6, "n": 21}, {"bin_center": 85.0, "hit_rate": 78.3, "n": 32}, {"bin_center": 95.0, "hit_rate": 77.5, "n": 21}], "brier_score": 0.197, "n_samples": 124, "is_calibrated": true}, "core": {"bins": [{"bin_center": 5.0, "hit_rate": 5.2, "n": 44}, {"bin_center": 15.0, "hit_rate": 17.0, "n": 29}, {"bin_center": 25.0, "hit_rate": 27.9, "n": 13}, {"bin_center": 35.0, "hit_rate": 35.0, "n": 38}, {"bin_center": 45.0, "hit_rate": 40.4, "n": 43}, {"bin_center": 55.0, "hit_rate": 52.3, "n": 8}, {"bin_center": 65.0, "hit_rate": 56.8, "n": 42}, {"bin_center": 75.0, "hit_rate": 73.1, "n": 13}, {"bin_center": 85.0, "hit_rate": 70.6, "n": 37}, {"bin_center": 95.0, "hit_rate": 93.5, "n": 11}], "brier_score": 0.221, "n_samples": 88, "is_calibrated": true}};
+</script>
+
+<!-- Inline sample override: populated by export script -->
+</body>
+</html>
