@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-07-03T18:38:21.914958",
+  "last_updated": "2026-07-03T19:42:25.930664",
   "mode": "paper",
   "action_required": true,
   "benchmark": {
@@ -99,7 +99,7 @@
   "alerts": [
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-03T18:38:21.914703Z",
+      "generated_at": "2026-07-03T19:42:25.930487Z",
       "mode": "paper",
       "ticker": "TSM",
       "sleeve": "swing",
@@ -160,7 +160,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-03T18:38:21.914703Z",
+      "generated_at": "2026-07-03T19:42:25.930487Z",
       "mode": "paper",
       "ticker": "NVDA",
       "sleeve": "core",
