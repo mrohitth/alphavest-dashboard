@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-07-15T20:30:52.430868",
+  "last_updated": "2026-07-15T21:00:10.241189",
   "mode": "paper",
   "action_required": false,
   "benchmark": {
@@ -99,7 +99,7 @@
   "alerts": [
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-15T20:30:49.874488",
+      "generated_at": "2026-07-15T21:00:03.562740",
       "mode": "paper",
       "ticker": "VTI",
       "sleeve": "core",
@@ -158,7 +158,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-15T20:30:50.027363",
+      "generated_at": "2026-07-15T21:00:04.083248",
       "mode": "paper",
       "ticker": "VOO",
       "sleeve": "core",
@@ -217,7 +217,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-15T20:30:50.160512",
+      "generated_at": "2026-07-15T21:00:04.598567",
       "mode": "paper",
       "ticker": "QQQ",
       "sleeve": "core",
@@ -276,7 +276,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-15T20:30:50.278373",
+      "generated_at": "2026-07-15T21:00:04.958632",
       "mode": "paper",
       "ticker": "SCHD",
       "sleeve": "core",
@@ -333,7 +333,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-15T20:30:50.411635",
+      "generated_at": "2026-07-15T21:00:05.393894",
       "mode": "paper",
       "ticker": "SMH",
       "sleeve": "core",
@@ -392,7 +392,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-15T20:30:50.564208",
+      "generated_at": "2026-07-15T21:00:05.855367",
       "mode": "paper",
       "ticker": "XLE",
       "sleeve": "core",
@@ -449,7 +449,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-15T20:30:51.036028",
+      "generated_at": "2026-07-15T21:00:06.307631",
       "mode": "paper",
       "ticker": "XLV",
       "sleeve": "core",
@@ -508,7 +508,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-15T20:30:51.168167",
+      "generated_at": "2026-07-15T21:00:06.708990",
       "mode": "paper",
       "ticker": "NVDA",
       "sleeve": "core",
@@ -567,7 +567,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-15T20:30:51.276359",
+      "generated_at": "2026-07-15T21:00:07.075699",
       "mode": "paper",
       "ticker": "TSM",
       "sleeve": "core",
@@ -623,7 +623,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-15T20:30:51.399772",
+      "generated_at": "2026-07-15T21:00:07.464678",
       "mode": "paper",
       "ticker": "AVGO",
       "sleeve": "core",
@@ -682,7 +682,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-15T20:30:51.556511",
+      "generated_at": "2026-07-15T21:00:07.801467",
       "mode": "paper",
       "ticker": "QCOM",
       "sleeve": "core",
@@ -740,7 +740,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-15T20:30:51.661038",
+      "generated_at": "2026-07-15T21:00:08.319284",
       "mode": "paper",
       "ticker": "AMGN",
       "sleeve": "core",
@@ -798,7 +798,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-15T20:30:51.776878",
+      "generated_at": "2026-07-15T21:00:08.847666",
       "mode": "paper",
       "ticker": "CVX",
       "sleeve": "core",
@@ -855,7 +855,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-15T20:30:51.885104",
+      "generated_at": "2026-07-15T21:00:09.336109",
       "mode": "paper",
       "ticker": "NOK",
       "sleeve": "core",
@@ -913,7 +913,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-15T20:30:51.996080",
+      "generated_at": "2026-07-15T21:00:09.821751",
       "mode": "paper",
       "ticker": "ASTS",
       "sleeve": "core",
@@ -972,7 +972,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-15T20:30:52.422492",
+      "generated_at": "2026-07-15T21:00:10.231810",
       "mode": "paper",
       "ticker": "COIN",
       "sleeve": "core",
