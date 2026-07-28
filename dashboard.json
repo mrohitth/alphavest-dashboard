@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-07-28T15:53:43.607918",
+  "last_updated": "2026-07-28T16:44:22.634158",
   "mode": "paper",
   "action_required": false,
   "benchmark": {
@@ -99,7 +99,7 @@
   "alerts": [
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T15:53:41.245398",
+      "generated_at": "2026-07-28T16:44:16.465604",
       "mode": "paper",
       "ticker": "VTI",
       "sleeve": "core",
@@ -157,7 +157,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T15:53:41.464571",
+      "generated_at": "2026-07-28T16:44:16.867880",
       "mode": "paper",
       "ticker": "VOO",
       "sleeve": "core",
@@ -215,7 +215,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T15:53:41.953951",
+      "generated_at": "2026-07-28T16:44:17.241625",
       "mode": "paper",
       "ticker": "QQQ",
       "sleeve": "core",
@@ -273,7 +273,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T15:53:42.056708",
+      "generated_at": "2026-07-28T16:44:17.543004",
       "mode": "paper",
       "ticker": "SCHD",
       "sleeve": "core",
@@ -330,7 +330,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T15:53:42.143661",
+      "generated_at": "2026-07-28T16:44:18.005786",
       "mode": "paper",
       "ticker": "SMH",
       "sleeve": "core",
@@ -388,7 +388,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T15:53:42.240526",
+      "generated_at": "2026-07-28T16:44:18.526284",
       "mode": "paper",
       "ticker": "XLE",
       "sleeve": "core",
@@ -445,7 +445,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T15:53:42.366493",
+      "generated_at": "2026-07-28T16:44:19.012624",
       "mode": "paper",
       "ticker": "XLV",
       "sleeve": "core",
@@ -504,7 +504,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T15:53:42.468743",
+      "generated_at": "2026-07-28T16:44:19.309247",
       "mode": "paper",
       "ticker": "NVDA",
       "sleeve": "core",
@@ -562,7 +562,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T15:53:42.555612",
+      "generated_at": "2026-07-28T16:44:19.616748",
       "mode": "paper",
       "ticker": "TSM",
       "sleeve": "core",
@@ -618,7 +618,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T15:53:42.652375",
+      "generated_at": "2026-07-28T16:44:19.999560",
       "mode": "paper",
       "ticker": "AVGO",
       "sleeve": "core",
@@ -677,7 +677,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T15:53:42.747098",
+      "generated_at": "2026-07-28T16:44:20.446645",
       "mode": "paper",
       "ticker": "QCOM",
       "sleeve": "core",
@@ -733,7 +733,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T15:53:42.837324",
+      "generated_at": "2026-07-28T16:44:20.954664",
       "mode": "paper",
       "ticker": "AMGN",
       "sleeve": "core",
@@ -745,12 +745,12 @@
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
-        "trend_momentum": 89.56,
+        "trend_momentum": 90.08,
         "value": 41.74,
         "quality": 66.67,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 70.35,
+        "volatility_liquidity": 71.13,
         "agreeing": [
           "trend_momentum",
           "quality",
@@ -791,7 +791,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T15:53:42.937615",
+      "generated_at": "2026-07-28T16:44:21.448737",
       "mode": "paper",
       "ticker": "CVX",
       "sleeve": "core",
@@ -848,7 +848,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T15:53:43.092763",
+      "generated_at": "2026-07-28T16:44:21.941451",
       "mode": "paper",
       "ticker": "NOK",
       "sleeve": "core",
@@ -906,7 +906,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T15:53:43.275900",
+      "generated_at": "2026-07-28T16:44:22.196690",
       "mode": "paper",
       "ticker": "ASTS",
       "sleeve": "core",
@@ -965,7 +965,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T15:53:43.599100",
+      "generated_at": "2026-07-28T16:44:22.625436",
       "mode": "paper",
       "ticker": "COIN",
       "sleeve": "core",
