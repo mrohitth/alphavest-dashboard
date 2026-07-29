@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-07-28T21:05:52.653747",
+  "last_updated": "2026-07-29T13:47:07.908569",
   "mode": "paper",
   "action_required": false,
   "benchmark": {
@@ -99,7 +99,7 @@
   "alerts": [
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T21:04:51.912828",
+      "generated_at": "2026-07-29T13:46:55.730555",
       "mode": "paper",
       "ticker": "VTI",
       "sleeve": "core",
@@ -157,7 +157,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T21:04:56.073396",
+      "generated_at": "2026-07-29T13:46:56.510227",
       "mode": "paper",
       "ticker": "VOO",
       "sleeve": "core",
@@ -215,7 +215,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T21:05:00.284867",
+      "generated_at": "2026-07-29T13:46:57.058232",
       "mode": "paper",
       "ticker": "QQQ",
       "sleeve": "core",
@@ -273,7 +273,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T21:05:04.531554",
+      "generated_at": "2026-07-29T13:46:57.826169",
       "mode": "paper",
       "ticker": "SCHD",
       "sleeve": "core",
@@ -330,7 +330,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T21:05:08.698658",
+      "generated_at": "2026-07-29T13:46:58.325412",
       "mode": "paper",
       "ticker": "SMH",
       "sleeve": "core",
@@ -388,7 +388,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T21:05:12.855307",
+      "generated_at": "2026-07-29T13:46:59.148189",
       "mode": "paper",
       "ticker": "XLE",
       "sleeve": "core",
@@ -445,7 +445,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T21:05:17.019021",
+      "generated_at": "2026-07-29T13:46:59.698158",
       "mode": "paper",
       "ticker": "XLV",
       "sleeve": "core",
@@ -504,7 +504,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T21:05:21.170794",
+      "generated_at": "2026-07-29T13:47:00.675254",
       "mode": "paper",
       "ticker": "NVDA",
       "sleeve": "core",
@@ -562,7 +562,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T21:05:25.366433",
+      "generated_at": "2026-07-29T13:47:01.585878",
       "mode": "paper",
       "ticker": "TSM",
       "sleeve": "core",
@@ -618,7 +618,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T21:05:29.566347",
+      "generated_at": "2026-07-29T13:47:02.314680",
       "mode": "paper",
       "ticker": "AVGO",
       "sleeve": "core",
@@ -677,7 +677,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T21:05:33.734905",
+      "generated_at": "2026-07-29T13:47:02.942330",
       "mode": "paper",
       "ticker": "QCOM",
       "sleeve": "core",
@@ -704,7 +704,7 @@
       "confidence_drivers": {
         "data_quality": 0.769,
         "regime_fit": 1.0,
-        "event_risk": "earnings_in_1d",
+        "event_risk": "earnings_in_0d",
         "freshness": 1.0,
         "robustness": 1.0,
         "liquidity": 0.8735
@@ -733,7 +733,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T21:05:37.921853",
+      "generated_at": "2026-07-29T13:47:03.910287",
       "mode": "paper",
       "ticker": "AMGN",
       "sleeve": "core",
@@ -745,12 +745,12 @@
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
-        "trend_momentum": 90.08,
+        "trend_momentum": 89.56,
         "value": 41.74,
         "quality": 66.67,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 71.13,
+        "volatility_liquidity": 70.35,
         "agreeing": [
           "trend_momentum",
           "quality",
@@ -762,7 +762,7 @@
       "confidence_drivers": {
         "data_quality": 0.769,
         "regime_fit": 1.0,
-        "event_risk": "earnings_in_5d",
+        "event_risk": "earnings_in_4d",
         "freshness": 1.0,
         "robustness": 1.0,
         "liquidity": 1.0
@@ -791,7 +791,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T21:05:42.179118",
+      "generated_at": "2026-07-29T13:47:04.879066",
       "mode": "paper",
       "ticker": "CVX",
       "sleeve": "core",
@@ -819,7 +819,7 @@
       "confidence_drivers": {
         "data_quality": 0.769,
         "regime_fit": 1.0,
-        "event_risk": "earnings_in_3d",
+        "event_risk": "earnings_in_2d",
         "freshness": 1.0,
         "robustness": 1.0,
         "liquidity": 0.9848
@@ -848,7 +848,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T21:05:46.366351",
+      "generated_at": "2026-07-29T13:47:05.935932",
       "mode": "paper",
       "ticker": "NOK",
       "sleeve": "core",
@@ -906,7 +906,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T21:05:50.508001",
+      "generated_at": "2026-07-29T13:47:07.047429",
       "mode": "paper",
       "ticker": "ASTS",
       "sleeve": "core",
@@ -965,7 +965,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-28T21:05:52.645504",
+      "generated_at": "2026-07-29T13:47:07.900284",
       "mode": "paper",
       "ticker": "COIN",
       "sleeve": "core",
@@ -995,7 +995,7 @@
       "confidence_drivers": {
         "data_quality": 0.769,
         "regime_fit": 1.0,
-        "event_risk": "earnings_in_2d",
+        "event_risk": "earnings_in_1d",
         "freshness": 1.0,
         "robustness": 1.0,
         "liquidity": 0.7822
