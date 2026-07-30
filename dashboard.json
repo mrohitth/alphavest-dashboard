@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-07-30T18:41:05.036446",
+  "last_updated": "2026-07-30T19:43:42.508242",
   "mode": "paper",
   "action_required": false,
   "benchmark": {
@@ -99,7 +99,7 @@
   "alerts": [
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-30T18:40:53.713462",
+      "generated_at": "2026-07-30T19:43:36.077238",
       "mode": "paper",
       "ticker": "VTI",
       "sleeve": "core",
@@ -157,7 +157,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-30T18:40:54.422664",
+      "generated_at": "2026-07-30T19:43:36.463961",
       "mode": "paper",
       "ticker": "VOO",
       "sleeve": "core",
@@ -174,7 +174,7 @@
         "quality": 50.0,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 73.7,
+        "volatility_liquidity": 73.76,
         "agreeing": [
           "regime",
           "volatility_liquidity"
@@ -215,7 +215,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-30T18:40:54.986008",
+      "generated_at": "2026-07-30T19:43:37.460639",
       "mode": "paper",
       "ticker": "QQQ",
       "sleeve": "core",
@@ -232,7 +232,7 @@
         "quality": 50.0,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 76.37,
+        "volatility_liquidity": 76.57,
         "agreeing": [
           "regime",
           "volatility_liquidity"
@@ -273,7 +273,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-30T18:40:55.633830",
+      "generated_at": "2026-07-30T19:43:37.792803",
       "mode": "paper",
       "ticker": "SCHD",
       "sleeve": "core",
@@ -290,7 +290,7 @@
         "quality": 50.0,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 80.85,
+        "volatility_liquidity": 80.95,
         "agreeing": [
           "trend_momentum",
           "regime",
@@ -330,7 +330,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-30T18:40:56.201122",
+      "generated_at": "2026-07-30T19:43:38.316992",
       "mode": "paper",
       "ticker": "SMH",
       "sleeve": "core",
@@ -347,7 +347,7 @@
         "quality": 50.0,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 59.06,
+        "volatility_liquidity": 59.17,
         "agreeing": [
           "regime"
         ],
@@ -361,7 +361,7 @@
         "event_risk": "none",
         "freshness": 1.0,
         "robustness": 1.0,
-        "liquidity": 0.9219
+        "liquidity": 0.9226
       },
       "historical_base": {
         "analogous_cases": 0,
@@ -387,7 +387,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-30T18:40:56.972903",
+      "generated_at": "2026-07-30T19:43:38.720934",
       "mode": "paper",
       "ticker": "XLE",
       "sleeve": "core",
@@ -444,7 +444,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-30T18:40:57.756130",
+      "generated_at": "2026-07-30T19:43:39.023835",
       "mode": "paper",
       "ticker": "XLV",
       "sleeve": "core",
@@ -503,7 +503,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-30T18:40:58.401716",
+      "generated_at": "2026-07-30T19:43:39.622771",
       "mode": "paper",
       "ticker": "NVDA",
       "sleeve": "core",
@@ -520,7 +520,7 @@
         "quality": 66.67,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 58.17,
+        "volatility_liquidity": 58.26,
         "agreeing": [
           "quality",
           "regime"
@@ -536,7 +536,7 @@
         "event_risk": "none",
         "freshness": 1.0,
         "robustness": 1.0,
-        "liquidity": 0.9155
+        "liquidity": 0.9161
       },
       "historical_base": {
         "analogous_cases": 0,
@@ -562,7 +562,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-30T18:40:59.306670",
+      "generated_at": "2026-07-30T19:43:39.959628",
       "mode": "paper",
       "ticker": "TSM",
       "sleeve": "core",
@@ -579,7 +579,7 @@
         "quality": 66.67,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 60.94,
+        "volatility_liquidity": 61.05,
         "agreeing": [
           "quality",
           "regime",
@@ -593,7 +593,7 @@
         "event_risk": "none",
         "freshness": 1.0,
         "robustness": 1.0,
-        "liquidity": 0.9353
+        "liquidity": 0.9361
       },
       "historical_base": {
         "analogous_cases": 0,
@@ -619,7 +619,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-30T18:40:59.796634",
+      "generated_at": "2026-07-30T19:43:40.229439",
       "mode": "paper",
       "ticker": "AVGO",
       "sleeve": "core",
@@ -636,7 +636,7 @@
         "quality": 66.67,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 54.44,
+        "volatility_liquidity": 54.5,
         "agreeing": [
           "quality",
           "regime"
@@ -651,7 +651,7 @@
         "event_risk": "none",
         "freshness": 1.0,
         "robustness": 1.0,
-        "liquidity": 0.8889
+        "liquidity": 0.8893
       },
       "historical_base": {
         "analogous_cases": 0,
@@ -677,7 +677,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-30T18:41:01.052792",
+      "generated_at": "2026-07-30T19:43:40.556814",
       "mode": "paper",
       "ticker": "QCOM",
       "sleeve": "core",
@@ -694,7 +694,7 @@
         "quality": 62.33,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 54.62,
+        "volatility_liquidity": 54.86,
         "agreeing": [
           "quality",
           "regime"
@@ -709,7 +709,7 @@
         "event_risk": "none",
         "freshness": 1.0,
         "robustness": 1.0,
-        "liquidity": 0.8901
+        "liquidity": 0.8919
       },
       "historical_base": {
         "analogous_cases": 0,
@@ -735,7 +735,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-30T18:41:02.186892",
+      "generated_at": "2026-07-30T19:43:40.896884",
       "mode": "paper",
       "ticker": "AMGN",
       "sleeve": "core",
@@ -793,7 +793,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-30T18:41:03.098909",
+      "generated_at": "2026-07-30T19:43:41.353463",
       "mode": "paper",
       "ticker": "CVX",
       "sleeve": "core",
@@ -850,7 +850,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-30T18:41:03.711668",
+      "generated_at": "2026-07-30T19:43:41.725383",
       "mode": "paper",
       "ticker": "NOK",
       "sleeve": "core",
@@ -867,7 +867,7 @@
         "quality": 54.59,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 33.69,
+        "volatility_liquidity": 33.76,
         "agreeing": [
           "regime"
         ],
@@ -883,7 +883,7 @@
         "event_risk": "none",
         "freshness": 1.0,
         "robustness": 1.0,
-        "liquidity": 0.7406
+        "liquidity": 0.7411
       },
       "historical_base": {
         "analogous_cases": 0,
@@ -909,7 +909,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-30T18:41:04.380301",
+      "generated_at": "2026-07-30T19:43:41.970984",
       "mode": "paper",
       "ticker": "ASTS",
       "sleeve": "core",
@@ -926,7 +926,7 @@
         "quality": 20.69,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 15.43,
+        "volatility_liquidity": 15.51,
         "agreeing": [
           "regime"
         ],
@@ -942,7 +942,7 @@
         "event_risk": "none",
         "freshness": 1.0,
         "robustness": 1.0,
-        "liquidity": 0.6102
+        "liquidity": 0.6108
       },
       "historical_base": {
         "analogous_cases": 0,
@@ -968,7 +968,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-07-30T18:41:05.030177",
+      "generated_at": "2026-07-30T19:43:42.498971",
       "mode": "paper",
       "ticker": "COIN",
       "sleeve": "core",
@@ -985,7 +985,7 @@
         "quality": 66.67,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 37.56,
+        "volatility_liquidity": 37.63,
         "agreeing": [
           "quality",
           "regime"
@@ -1002,7 +1002,7 @@
         "event_risk": "earnings_in_0d",
         "freshness": 1.0,
         "robustness": 1.0,
-        "liquidity": 0.7683
+        "liquidity": 0.7688
       },
       "historical_base": {
         "analogous_cases": 0,
