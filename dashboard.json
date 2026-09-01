@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-09-01T20:09:01.355702",
+  "last_updated": "2026-09-01T22:48:37.373519",
   "mode": "paper",
   "action_required": false,
   "benchmark": {
@@ -99,7 +99,7 @@
   "alerts": [
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-01T20:08:42.103893",
+      "generated_at": "2026-09-01T22:48:30.866627",
       "mode": "paper",
       "ticker": "VTI",
       "sleeve": "core",
@@ -111,12 +111,12 @@
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
-        "trend_momentum": 69.27,
+        "trend_momentum": 69.77,
         "value": 37.35,
         "quality": 50.0,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 76.3,
+        "volatility_liquidity": 76.33,
         "agreeing": [
           "trend_momentum",
           "regime",
@@ -158,7 +158,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-01T20:08:43.278864",
+      "generated_at": "2026-09-01T22:48:31.316302",
       "mode": "paper",
       "ticker": "VOO",
       "sleeve": "core",
@@ -217,7 +217,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-01T20:08:44.503961",
+      "generated_at": "2026-09-01T22:48:31.762574",
       "mode": "paper",
       "ticker": "QQQ",
       "sleeve": "core",
@@ -276,7 +276,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-01T20:08:45.645339",
+      "generated_at": "2026-09-01T22:48:32.340002",
       "mode": "paper",
       "ticker": "SCHD",
       "sleeve": "core",
@@ -333,7 +333,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-01T20:08:46.970346",
+      "generated_at": "2026-09-01T22:48:32.898116",
       "mode": "paper",
       "ticker": "SMH",
       "sleeve": "core",
@@ -350,7 +350,7 @@
         "quality": 50.0,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 56.09,
+        "volatility_liquidity": 55.93,
         "agreeing": [
           "regime"
         ],
@@ -364,7 +364,7 @@
         "event_risk": "none",
         "freshness": 1.0,
         "robustness": 1.0,
-        "liquidity": 0.9006
+        "liquidity": 0.8995
       },
       "historical_base": {
         "analogous_cases": 0,
@@ -390,7 +390,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-01T20:08:48.365240",
+      "generated_at": "2026-09-01T22:48:33.299131",
       "mode": "paper",
       "ticker": "XLE",
       "sleeve": "core",
@@ -447,7 +447,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-01T20:08:49.700836",
+      "generated_at": "2026-09-01T22:48:33.720094",
       "mode": "paper",
       "ticker": "XLV",
       "sleeve": "core",
@@ -506,7 +506,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-01T20:08:51.061461",
+      "generated_at": "2026-09-01T22:48:34.074181",
       "mode": "paper",
       "ticker": "NVDA",
       "sleeve": "core",
@@ -565,7 +565,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-01T20:08:52.333403",
+      "generated_at": "2026-09-01T22:48:34.444934",
       "mode": "paper",
       "ticker": "TSM",
       "sleeve": "core",
@@ -623,7 +623,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-01T20:08:53.633433",
+      "generated_at": "2026-09-01T22:48:34.870192",
       "mode": "paper",
       "ticker": "AVGO",
       "sleeve": "core",
@@ -682,7 +682,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-01T20:08:54.893043",
+      "generated_at": "2026-09-01T22:48:35.313433",
       "mode": "paper",
       "ticker": "QCOM",
       "sleeve": "core",
@@ -740,7 +740,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-01T20:08:56.043926",
+      "generated_at": "2026-09-01T22:48:35.783007",
       "mode": "paper",
       "ticker": "AMGN",
       "sleeve": "core",
@@ -800,7 +800,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-01T20:08:57.649565",
+      "generated_at": "2026-09-01T22:48:36.243154",
       "mode": "paper",
       "ticker": "CVX",
       "sleeve": "core",
@@ -858,7 +858,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-01T20:08:58.974105",
+      "generated_at": "2026-09-01T22:48:36.687898",
       "mode": "paper",
       "ticker": "NOK",
       "sleeve": "core",
@@ -916,7 +916,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-01T20:09:00.138700",
+      "generated_at": "2026-09-01T22:48:37.042318",
       "mode": "paper",
       "ticker": "ASTS",
       "sleeve": "core",
@@ -975,7 +975,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-01T20:09:01.347237",
+      "generated_at": "2026-09-01T22:48:37.365886",
       "mode": "paper",
       "ticker": "COIN",
       "sleeve": "core",
