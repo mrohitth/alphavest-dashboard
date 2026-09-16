@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-09-16T20:25:45.638425",
+  "last_updated": "2026-09-16T23:14:26.624428",
   "mode": "paper",
   "action_required": false,
   "benchmark": {
@@ -99,20 +99,20 @@
   "alerts": [
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-16T20:25:38.286943",
+      "generated_at": "2026-09-16T23:14:12.545969",
       "mode": "paper",
       "ticker": "VTI",
       "sleeve": "core",
       "alert_type": "WATCH",
       "speculative": false,
-      "conviction": 49,
+      "conviction": 50,
       "confidence_pct": null,
       "confidence_band": null,
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
         "trend_momentum": 43.73,
-        "value": 37.71,
+        "value": 40.51,
         "quality": 50.0,
         "sentiment": 50.0,
         "regime": "on",
@@ -121,9 +121,7 @@
           "regime",
           "volatility_liquidity"
         ],
-        "conflicting": [
-          "value"
-        ]
+        "conflicting": []
       },
       "confidence_drivers": {
         "data_quality": 0.707,
@@ -157,20 +155,20 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-16T20:25:38.817247",
+      "generated_at": "2026-09-16T23:14:13.450418",
       "mode": "paper",
       "ticker": "VOO",
       "sleeve": "core",
       "alert_type": "WATCH",
       "speculative": false,
-      "conviction": 50,
+      "conviction": 51,
       "confidence_pct": null,
       "confidence_band": null,
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
         "trend_momentum": 43.66,
-        "value": 36.56,
+        "value": 39.21,
         "quality": 50.0,
         "sentiment": 50.0,
         "regime": "on",
@@ -215,7 +213,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-16T20:25:39.466048",
+      "generated_at": "2026-09-16T23:14:14.281161",
       "mode": "paper",
       "ticker": "QQQ",
       "sleeve": "core",
@@ -228,7 +226,7 @@
       "risk_pct": null,
       "pillar_breakdown": {
         "trend_momentum": 44.79,
-        "value": 29.49,
+        "value": 29.48,
         "quality": 50.0,
         "sentiment": 50.0,
         "regime": "on",
@@ -273,7 +271,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-16T20:25:39.958733",
+      "generated_at": "2026-09-16T23:14:15.580931",
       "mode": "paper",
       "ticker": "SCHD",
       "sleeve": "core",
@@ -286,7 +284,7 @@
       "risk_pct": null,
       "pillar_breakdown": {
         "trend_momentum": 66.01,
-        "value": 52.63,
+        "value": 53.31,
         "quality": 50.0,
         "sentiment": 50.0,
         "regime": "on",
@@ -330,7 +328,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-16T20:25:40.444771",
+      "generated_at": "2026-09-16T23:14:16.411073",
       "mode": "paper",
       "ticker": "SMH",
       "sleeve": "core",
@@ -343,7 +341,7 @@
       "risk_pct": null,
       "pillar_breakdown": {
         "trend_momentum": 50.0,
-        "value": 15.41,
+        "value": 15.11,
         "quality": 50.0,
         "sentiment": 50.0,
         "regime": "on",
@@ -388,7 +386,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-16T20:25:40.926239",
+      "generated_at": "2026-09-16T23:14:17.348185",
       "mode": "paper",
       "ticker": "XLE",
       "sleeve": "core",
@@ -401,7 +399,7 @@
       "risk_pct": null,
       "pillar_breakdown": {
         "trend_momentum": 71.23,
-        "value": 54.27,
+        "value": 55.57,
         "quality": 50.0,
         "sentiment": 50.0,
         "regime": "on",
@@ -445,7 +443,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-16T20:25:41.437727",
+      "generated_at": "2026-09-16T23:14:18.223337",
       "mode": "paper",
       "ticker": "XLV",
       "sleeve": "core",
@@ -458,7 +456,7 @@
       "risk_pct": null,
       "pillar_breakdown": {
         "trend_momentum": 64.83,
-        "value": 26.98,
+        "value": 26.94,
         "quality": 50.0,
         "sentiment": 50.0,
         "regime": "on",
@@ -504,7 +502,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-16T20:25:41.880675",
+      "generated_at": "2026-09-16T23:14:19.057446",
       "mode": "paper",
       "ticker": "NVDA",
       "sleeve": "core",
@@ -517,7 +515,7 @@
       "risk_pct": null,
       "pillar_breakdown": {
         "trend_momentum": 45.35,
-        "value": 26.3,
+        "value": 25.9,
         "quality": 66.67,
         "sentiment": 50.0,
         "regime": "on",
@@ -562,7 +560,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-16T20:25:42.339722",
+      "generated_at": "2026-09-16T23:14:19.977126",
       "mode": "paper",
       "ticker": "TSM",
       "sleeve": "core",
@@ -575,7 +573,7 @@
       "risk_pct": null,
       "pillar_breakdown": {
         "trend_momentum": 50.0,
-        "value": 53.47,
+        "value": 53.22,
         "quality": 66.67,
         "sentiment": 50.0,
         "regime": "on",
@@ -619,7 +617,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-16T20:25:42.827095",
+      "generated_at": "2026-09-16T23:14:21.001562",
       "mode": "paper",
       "ticker": "AVGO",
       "sleeve": "core",
@@ -632,7 +630,7 @@
       "risk_pct": null,
       "pillar_breakdown": {
         "trend_momentum": 21.71,
-        "value": 8.38,
+        "value": 8.66,
         "quality": 66.67,
         "sentiment": 50.0,
         "regime": "on",
@@ -679,7 +677,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-16T20:25:43.299556",
+      "generated_at": "2026-09-16T23:14:21.834153",
       "mode": "paper",
       "ticker": "QCOM",
       "sleeve": "core",
@@ -692,7 +690,7 @@
       "risk_pct": null,
       "pillar_breakdown": {
         "trend_momentum": 70.43,
-        "value": 45.8,
+        "value": 45.02,
         "quality": 61.85,
         "sentiment": 50.0,
         "regime": "on",
@@ -737,7 +735,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-16T20:25:43.755315",
+      "generated_at": "2026-09-16T23:14:22.733232",
       "mode": "paper",
       "ticker": "AMGN",
       "sleeve": "core",
@@ -750,7 +748,7 @@
       "risk_pct": null,
       "pillar_breakdown": {
         "trend_momentum": 50.0,
-        "value": 46.85,
+        "value": 47.16,
         "quality": 66.67,
         "sentiment": 50.0,
         "regime": "on",
@@ -793,7 +791,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-16T20:25:44.286831",
+      "generated_at": "2026-09-16T23:14:23.684389",
       "mode": "paper",
       "ticker": "CVX",
       "sleeve": "core",
@@ -806,7 +804,7 @@
       "risk_pct": null,
       "pillar_breakdown": {
         "trend_momentum": 76.55,
-        "value": 59.09,
+        "value": 59.5,
         "quality": 53.56,
         "sentiment": 50.0,
         "regime": "on",
@@ -850,7 +848,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-16T20:25:44.784498",
+      "generated_at": "2026-09-16T23:14:24.547888",
       "mode": "paper",
       "ticker": "NOK",
       "sleeve": "core",
@@ -863,7 +861,7 @@
       "risk_pct": null,
       "pillar_breakdown": {
         "trend_momentum": 70.0,
-        "value": 16.61,
+        "value": 14.94,
         "quality": 54.59,
         "sentiment": 50.0,
         "regime": "on",
@@ -908,7 +906,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-16T20:25:45.178405",
+      "generated_at": "2026-09-16T23:14:25.502752",
       "mode": "paper",
       "ticker": "ASTS",
       "sleeve": "core",
@@ -967,7 +965,7 @@
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-09-16T20:25:45.629285",
+      "generated_at": "2026-09-16T23:14:26.616861",
       "mode": "paper",
       "ticker": "COIN",
       "sleeve": "core",
@@ -980,7 +978,7 @@
       "risk_pct": null,
       "pillar_breakdown": {
         "trend_momentum": 30.0,
-        "value": 0.04,
+        "value": 0.12,
         "quality": 66.67,
         "sentiment": 50.0,
         "regime": "on",
