@@ -544,5 +544,11 @@
     "system_ytd_pct": 0.0,
     "benchmark_ytd_pct": 2.74,
     "drawdown_pct": 0.0
+  },
+  {
+    "snapshot_date": "2026-10-09",
+    "system_ytd_pct": 0.0,
+    "benchmark_ytd_pct": 2.31,
+    "drawdown_pct": 0.0
   }
 ]
