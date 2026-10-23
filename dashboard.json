@@ -1,12 +1,12 @@
 {
   "schema_version": "1.0",
-  "last_updated": "2026-10-22T21:30:07.733286",
+  "last_updated": "2026-10-23T17:51:44.236121",
   "mode": "paper",
   "action_required": false,
   "benchmark": {
     "symbol": "SPY",
     "system_ytd": 0.0,
-    "benchmark_ytd": 2.2
+    "benchmark_ytd": 0.99
   },
   "risk": {
     "max_position_pct": 8.0,
@@ -99,26 +99,25 @@
   "alerts": [
     {
       "schema_version": "1.0",
-      "generated_at": "2026-10-22T21:29:56.084327",
+      "generated_at": "2026-10-23T17:51:33.116748",
       "mode": "paper",
       "ticker": "VTI",
       "sleeve": "core",
       "alert_type": "WATCH",
       "speculative": false,
-      "conviction": 54,
+      "conviction": 50,
       "confidence_pct": null,
       "confidence_band": null,
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
-        "trend_momentum": 69.06,
-        "value": 40.23,
+        "trend_momentum": 43.19,
+        "value": 41.09,
         "quality": 50.0,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 72.67,
+        "volatility_liquidity": 75.44,
         "agreeing": [
-          "trend_momentum",
           "regime",
           "volatility_liquidity"
         ],
@@ -151,31 +150,30 @@
       ],
       "not_advice": true,
       "system_ytd_pct": 0.0,
-      "benchmark_ytd_pct": 2.2,
+      "benchmark_ytd_pct": 0.99,
       "benchmark_symbol": "SPY"
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-10-22T21:29:56.499341",
+      "generated_at": "2026-10-23T17:51:33.765893",
       "mode": "paper",
       "ticker": "VOO",
       "sleeve": "core",
       "alert_type": "WATCH",
       "speculative": false,
-      "conviction": 53,
+      "conviction": 49,
       "confidence_pct": null,
       "confidence_band": null,
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
-        "trend_momentum": 69.14,
-        "value": 38.82,
+        "trend_momentum": 43.24,
+        "value": 39.75,
         "quality": 50.0,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 70.78,
+        "volatility_liquidity": 70.93,
         "agreeing": [
-          "trend_momentum",
           "regime",
           "volatility_liquidity"
         ],
@@ -210,29 +208,29 @@
       ],
       "not_advice": true,
       "system_ytd_pct": 0.0,
-      "benchmark_ytd_pct": 2.2,
+      "benchmark_ytd_pct": 0.99,
       "benchmark_symbol": "SPY"
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-10-22T21:29:56.930139",
+      "generated_at": "2026-10-23T17:51:34.473947",
       "mode": "paper",
       "ticker": "QQQ",
       "sleeve": "core",
       "alert_type": "WATCH",
       "speculative": false,
-      "conviction": 47,
+      "conviction": 50,
       "confidence_pct": null,
       "confidence_band": null,
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
-        "trend_momentum": 44.36,
-        "value": 31.5,
+        "trend_momentum": 44.59,
+        "value": 33.12,
         "quality": 50.0,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 71.08,
+        "volatility_liquidity": 84.53,
         "agreeing": [
           "regime",
           "volatility_liquidity"
@@ -268,29 +266,29 @@
       ],
       "not_advice": true,
       "system_ytd_pct": 0.0,
-      "benchmark_ytd_pct": 2.2,
+      "benchmark_ytd_pct": 0.99,
       "benchmark_symbol": "SPY"
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-10-22T21:29:57.294872",
+      "generated_at": "2026-10-23T17:51:35.061370",
       "mode": "paper",
       "ticker": "SCHD",
       "sleeve": "core",
       "alert_type": "WATCH",
       "speculative": false,
-      "conviction": 60,
+      "conviction": 59,
       "confidence_pct": null,
       "confidence_band": null,
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
-        "trend_momentum": 87.45,
-        "value": 51.6,
+        "trend_momentum": 75.39,
+        "value": 50.78,
         "quality": 50.0,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 72.37,
+        "volatility_liquidity": 78.81,
         "agreeing": [
           "trend_momentum",
           "regime",
@@ -325,29 +323,29 @@
       ],
       "not_advice": true,
       "system_ytd_pct": 0.0,
-      "benchmark_ytd_pct": 2.2,
+      "benchmark_ytd_pct": 0.99,
       "benchmark_symbol": "SPY"
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-10-22T21:29:57.653940",
+      "generated_at": "2026-10-23T17:51:35.731638",
       "mode": "paper",
       "ticker": "SMH",
       "sleeve": "core",
       "alert_type": "WATCH",
       "speculative": false,
-      "conviction": 46,
+      "conviction": 49,
       "confidence_pct": null,
       "confidence_band": null,
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
         "trend_momentum": 50.0,
-        "value": 27.41,
+        "value": 30.5,
         "quality": 50.0,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 67.19,
+        "volatility_liquidity": 78.54,
         "agreeing": [
           "regime",
           "volatility_liquidity"
@@ -362,7 +360,7 @@
         "event_risk": "none",
         "freshness": 1.0,
         "robustness": 1.0,
-        "liquidity": 0.9799
+        "liquidity": 1.0
       },
       "historical_base": {
         "analogous_cases": 0,
@@ -383,29 +381,29 @@
       ],
       "not_advice": true,
       "system_ytd_pct": 0.0,
-      "benchmark_ytd_pct": 2.2,
+      "benchmark_ytd_pct": 0.99,
       "benchmark_symbol": "SPY"
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-10-22T21:29:58.048310",
+      "generated_at": "2026-10-23T17:51:36.495974",
       "mode": "paper",
       "ticker": "XLE",
       "sleeve": "core",
       "alert_type": "WATCH",
       "speculative": false,
-      "conviction": 60,
+      "conviction": 61,
       "confidence_pct": null,
       "confidence_band": null,
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
-        "trend_momentum": 91.6,
-        "value": 51.46,
+        "trend_momentum": 95.33,
+        "value": 50.65,
         "quality": 50.0,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 67.28,
+        "volatility_liquidity": 74.02,
         "agreeing": [
           "trend_momentum",
           "regime",
@@ -419,7 +417,7 @@
         "event_risk": "none",
         "freshness": 1.0,
         "robustness": 1.0,
-        "liquidity": 0.9806
+        "liquidity": 1.0
       },
       "historical_base": {
         "analogous_cases": 0,
@@ -440,29 +438,29 @@
       ],
       "not_advice": true,
       "system_ytd_pct": 0.0,
-      "benchmark_ytd_pct": 2.2,
+      "benchmark_ytd_pct": 0.99,
       "benchmark_symbol": "SPY"
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-10-22T21:29:58.483541",
+      "generated_at": "2026-10-23T17:51:37.179069",
       "mode": "paper",
       "ticker": "XLV",
       "sleeve": "core",
       "alert_type": "WATCH",
       "speculative": false,
-      "conviction": 51,
+      "conviction": 50,
       "confidence_pct": null,
       "confidence_band": null,
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
-        "trend_momentum": 85.65,
-        "value": 23.31,
+        "trend_momentum": 73.67,
+        "value": 23.18,
         "quality": 50.0,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 72.46,
+        "volatility_liquidity": 75.37,
         "agreeing": [
           "trend_momentum",
           "regime",
@@ -499,29 +497,29 @@
       ],
       "not_advice": true,
       "system_ytd_pct": 0.0,
-      "benchmark_ytd_pct": 2.2,
+      "benchmark_ytd_pct": 0.99,
       "benchmark_symbol": "SPY"
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-10-22T21:29:58.896619",
+      "generated_at": "2026-10-23T17:51:37.780426",
       "mode": "paper",
       "ticker": "NVDA",
       "sleeve": "core",
       "alert_type": "WATCH",
       "speculative": false,
-      "conviction": 49,
+      "conviction": 51,
       "confidence_pct": null,
       "confidence_band": null,
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
-        "trend_momentum": 44.96,
-        "value": 24.24,
+        "trend_momentum": 44.97,
+        "value": 26.16,
         "quality": 66.67,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 65.22,
+        "volatility_liquidity": 70.05,
         "agreeing": [
           "quality",
           "regime",
@@ -537,7 +535,7 @@
         "event_risk": "none",
         "freshness": 1.0,
         "robustness": 1.0,
-        "liquidity": 0.9659
+        "liquidity": 1.0
       },
       "historical_base": {
         "analogous_cases": 0,
@@ -558,29 +556,29 @@
       ],
       "not_advice": true,
       "system_ytd_pct": 0.0,
-      "benchmark_ytd_pct": 2.2,
+      "benchmark_ytd_pct": 0.99,
       "benchmark_symbol": "SPY"
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-10-22T21:29:59.299081",
+      "generated_at": "2026-10-23T17:51:38.511711",
       "mode": "paper",
       "ticker": "TSM",
       "sleeve": "core",
       "alert_type": "WATCH",
       "speculative": false,
-      "conviction": 60,
+      "conviction": 61,
       "confidence_pct": null,
       "confidence_band": null,
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
         "trend_momentum": 50.0,
-        "value": 56.91,
+        "value": 58.12,
         "quality": 66.67,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 65.94,
+        "volatility_liquidity": 71.59,
         "agreeing": [
           "quality",
           "regime",
@@ -594,7 +592,7 @@
         "event_risk": "none",
         "freshness": 1.0,
         "robustness": 1.0,
-        "liquidity": 0.971
+        "liquidity": 1.0
       },
       "historical_base": {
         "analogous_cases": 0,
@@ -615,32 +613,33 @@
       ],
       "not_advice": true,
       "system_ytd_pct": 0.0,
-      "benchmark_ytd_pct": 2.2,
+      "benchmark_ytd_pct": 0.99,
       "benchmark_symbol": "SPY"
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-10-22T21:29:59.995780",
+      "generated_at": "2026-10-23T17:51:39.110282",
       "mode": "paper",
       "ticker": "AVGO",
       "sleeve": "core",
       "alert_type": "WATCH",
       "speculative": false,
-      "conviction": 40,
+      "conviction": 41,
       "confidence_pct": null,
       "confidence_band": null,
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
-        "trend_momentum": 20.87,
-        "value": 8.98,
+        "trend_momentum": 20.74,
+        "value": 9.53,
         "quality": 66.67,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 57.61,
+        "volatility_liquidity": 63.01,
         "agreeing": [
           "quality",
-          "regime"
+          "regime",
+          "volatility_liquidity"
         ],
         "conflicting": [
           "trend_momentum",
@@ -653,7 +652,7 @@
         "event_risk": "none",
         "freshness": 1.0,
         "robustness": 1.0,
-        "liquidity": 0.9115
+        "liquidity": 0.9501
       },
       "historical_base": {
         "analogous_cases": 0,
@@ -674,33 +673,33 @@
       ],
       "not_advice": true,
       "system_ytd_pct": 0.0,
-      "benchmark_ytd_pct": 2.2,
+      "benchmark_ytd_pct": 0.99,
       "benchmark_symbol": "SPY"
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-10-22T21:30:00.830452",
+      "generated_at": "2026-10-23T17:51:40.702794",
       "mode": "paper",
       "ticker": "QCOM",
       "sleeve": "core",
       "alert_type": "WATCH",
       "speculative": false,
-      "conviction": 56,
+      "conviction": 55,
       "confidence_pct": null,
       "confidence_band": null,
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
-        "trend_momentum": 63.85,
-        "value": 47.55,
+        "trend_momentum": 43.43,
+        "value": 48.47,
         "quality": 61.85,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 53.33,
+        "volatility_liquidity": 63.0,
         "agreeing": [
-          "trend_momentum",
           "quality",
-          "regime"
+          "regime",
+          "volatility_liquidity"
         ],
         "conflicting": []
       },
@@ -710,7 +709,7 @@
         "event_risk": "none",
         "freshness": 1.0,
         "robustness": 1.0,
-        "liquidity": 0.8809
+        "liquidity": 0.95
       },
       "historical_base": {
         "analogous_cases": 0,
@@ -731,12 +730,12 @@
       ],
       "not_advice": true,
       "system_ytd_pct": 0.0,
-      "benchmark_ytd_pct": 2.2,
+      "benchmark_ytd_pct": 0.99,
       "benchmark_symbol": "SPY"
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-10-22T21:30:01.277401",
+      "generated_at": "2026-10-23T17:51:41.652587",
       "mode": "paper",
       "ticker": "AMGN",
       "sleeve": "core",
@@ -748,12 +747,12 @@
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
-        "trend_momentum": 93.72,
-        "value": 39.11,
+        "trend_momentum": 90.2,
+        "value": 38.45,
         "quality": 66.67,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 67.13,
+        "volatility_liquidity": 69.79,
         "agreeing": [
           "trend_momentum",
           "quality",
@@ -770,7 +769,7 @@
         "event_risk": "none",
         "freshness": 1.0,
         "robustness": 1.0,
-        "liquidity": 0.9795
+        "liquidity": 0.9985
       },
       "historical_base": {
         "analogous_cases": 0,
@@ -791,29 +790,29 @@
       ],
       "not_advice": true,
       "system_ytd_pct": 0.0,
-      "benchmark_ytd_pct": 2.2,
+      "benchmark_ytd_pct": 0.99,
       "benchmark_symbol": "SPY"
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-10-22T21:30:03.523901",
+      "generated_at": "2026-10-23T17:51:42.415140",
       "mode": "paper",
       "ticker": "CVX",
       "sleeve": "core",
       "alert_type": "WATCH",
       "speculative": false,
-      "conviction": 61,
+      "conviction": 60,
       "confidence_pct": null,
       "confidence_band": null,
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
-        "trend_momentum": 77.78,
-        "value": 57.2,
+        "trend_momentum": 77.48,
+        "value": 56.5,
         "quality": 53.56,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 68.94,
+        "volatility_liquidity": 65.69,
         "agreeing": [
           "trend_momentum",
           "regime",
@@ -824,10 +823,10 @@
       "confidence_drivers": {
         "data_quality": 0.769,
         "regime_fit": 1.0,
-        "event_risk": "none",
+        "event_risk": "earnings_in_5d",
         "freshness": 1.0,
         "robustness": 1.0,
-        "liquidity": 0.9924
+        "liquidity": 0.9692
       },
       "historical_base": {
         "analogous_cases": 0,
@@ -848,29 +847,29 @@
       ],
       "not_advice": true,
       "system_ytd_pct": 0.0,
-      "benchmark_ytd_pct": 2.2,
+      "benchmark_ytd_pct": 0.99,
       "benchmark_symbol": "SPY"
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-10-22T21:30:04.801400",
+      "generated_at": "2026-10-23T17:51:43.071433",
       "mode": "paper",
       "ticker": "NOK",
       "sleeve": "core",
       "alert_type": "WATCH",
       "speculative": false,
-      "conviction": 39,
+      "conviction": 37,
       "confidence_pct": null,
       "confidence_band": null,
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
-        "trend_momentum": 30.0,
-        "value": 18.96,
-        "quality": 54.59,
+        "trend_momentum": 26.0,
+        "value": 12.54,
+        "quality": 53.59,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 47.0,
+        "volatility_liquidity": 49.25,
         "agreeing": [
           "regime"
         ],
@@ -882,10 +881,10 @@
       "confidence_drivers": {
         "data_quality": 0.769,
         "regime_fit": 1.0,
-        "event_risk": "earnings_in_0d",
+        "event_risk": "none",
         "freshness": 1.0,
         "robustness": 1.0,
-        "liquidity": 0.8357
+        "liquidity": 0.8518
       },
       "historical_base": {
         "analogous_cases": 0,
@@ -906,29 +905,29 @@
       ],
       "not_advice": true,
       "system_ytd_pct": 0.0,
-      "benchmark_ytd_pct": 2.2,
+      "benchmark_ytd_pct": 0.99,
       "benchmark_symbol": "SPY"
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-10-22T21:30:06.360107",
+      "generated_at": "2026-10-23T17:51:43.643720",
       "mode": "paper",
       "ticker": "ASTS",
       "sleeve": "core",
       "alert_type": "WATCH",
       "speculative": true,
-      "conviction": 31,
+      "conviction": 32,
       "confidence_pct": null,
       "confidence_band": null,
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
-        "trend_momentum": 15.26,
+        "trend_momentum": 13.12,
         "value": 50.0,
         "quality": 15.76,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 20.56,
+        "volatility_liquidity": 28.11,
         "agreeing": [
           "regime"
         ],
@@ -944,7 +943,7 @@
         "event_risk": "none",
         "freshness": 1.0,
         "robustness": 1.0,
-        "liquidity": 0.6469
+        "liquidity": 0.7008
       },
       "historical_base": {
         "analogous_cases": 0,
@@ -965,12 +964,12 @@
       ],
       "not_advice": true,
       "system_ytd_pct": 0.0,
-      "benchmark_ytd_pct": 2.2,
+      "benchmark_ytd_pct": 0.99,
       "benchmark_symbol": "SPY"
     },
     {
       "schema_version": "1.0",
-      "generated_at": "2026-10-22T21:30:07.727370",
+      "generated_at": "2026-10-23T17:51:44.225531",
       "mode": "paper",
       "ticker": "COIN",
       "sleeve": "core",
@@ -982,12 +981,12 @@
       "suggested_size_pct": null,
       "risk_pct": null,
       "pillar_breakdown": {
-        "trend_momentum": 11.7,
-        "value": 0.13,
+        "trend_momentum": 12.44,
+        "value": 0.15,
         "quality": 66.67,
         "sentiment": 50.0,
         "regime": "on",
-        "volatility_liquidity": 41.28,
+        "volatility_liquidity": 40.29,
         "agreeing": [
           "quality",
           "regime"
@@ -1000,10 +999,10 @@
       "confidence_drivers": {
         "data_quality": 0.714,
         "regime_fit": 1.0,
-        "event_risk": "earnings_in_5d",
+        "event_risk": "earnings_in_4d",
         "freshness": 1.0,
         "robustness": 1.0,
-        "liquidity": 0.7949
+        "liquidity": 0.7878
       },
       "historical_base": {
         "analogous_cases": 0,
@@ -1024,7 +1023,7 @@
       ],
       "not_advice": true,
       "system_ytd_pct": 0.0,
-      "benchmark_ytd_pct": 2.2,
+      "benchmark_ytd_pct": 0.99,
       "benchmark_symbol": "SPY"
     }
   ],
